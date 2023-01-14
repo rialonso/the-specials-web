@@ -1,0 +1,38 @@
+<div class="container-modal-qr">
+   <div class="content-close">
+        <div class="close close-terms" (click)="onNoClick()">&times;</div>
+    </div>
+  <div class="container-itens-qr">
+    <div class="text-qr">
+      <div class="qr-title">{{ textQr.qrSignIn.qrTitle }}</div>
+      <div>
+        <div class="qr-subtitle"><span>1.</span> {{ textQr.qrSignIn.qrSubTitleFirst }}</div>
+        <div class="qr-subtitle"><span>2.</span> {{ textQr.qrSignIn.qrSubTitleSecond.qrFirstTouch }} <b>{{ textQr.qrSignIn.qrSubTitleSecond.qrSecondPerfil }} </b> <span><img src="/assets/icon-person@2x.png" alt=""></span>{{ textQr.qrSignIn.qrSubTitleSecond.qrThirdSelect }} <b> {{ textQr.qrSignIn.qrSubTitleSecond.qrFourthDevotee }}</b></div>
+        <div class="qr-subtitle"><span>3.</span> {{ textQr.qrSignIn.qrSubTitleThird.qrFirstTouch }} <b> {{ textQr.qrSignIn.qrSubTitleThird.qrSecondBold }}</b></div>
+        <div class="qr-subtitle"><span>4.</span> {{ textQr.qrSignIn.qrSubTitleFouth }}</div>
+      </div>
+    </div>
+    <div class="container-img-qr">
+      <mat-spinner class="spinner" *ngIf="showLoading"></mat-spinner>
+      <qrcode
+        *ngIf="!showLoading"
+        [qrdata]="qrCode" [width]="256" [errorCorrectionLevel]="'M'" [elementType]="'svg'"></qrcode>
+    </div>
+    <div class="container-creat-buttons">
+      <div class="create-account">
+        {{ textQr.qrSignIn.qrCreateAccount.qrNotAccount }} <a >{{ textQr.qrSignIn.qrCreateAccount.qrCreateAccount }}</a>
+      </div>
+      <div class="download-copyright">
+        <div class="download-app">
+            <p>{{textQr.getApp}}</p>
+            <div class="buttons-download">
+                <a href="https://play.google.com/store/apps/details?id=com.phurshell.devotee&hl=pt_BR" target="_blank" rel="noopener noreferrer">
+                <img src={{textQr.btnPlayStore}} alt={{textQr.altPlayStore}}  ></a>
+                <a href="https://apps.apple.com/br/app/devotee/id1331331692" target="_blank" rel="noopener noreferrer">
+                <img src={{textQr.btnAppStore}} alt={{textQr.altAppStore}} ></a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

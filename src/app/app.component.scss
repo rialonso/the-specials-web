@@ -1,0 +1,67 @@
+$black:     #000000;
+$white:     #ffffff;
+$grey-F1F:  #F1F1F1;
+$grey-F9F:  #F9F9F9;
+$grey-D9D:  #D9D9D9;
+$grey-C9C:  #C9C9C9;
+$grey-C4C:  #c4c4c4;
+$grey-999:  #999999;
+$grey-909:  #909090;
+$grey-707:  #707070;
+
+$red-EC1:   #EC1200;
+$blue-0BA:  #0BAEDB;
+$blue-3F5:  #3F51B5;
+$blue-364:  #36469C;
+$blue-2E2:  #2E2C8A;
+
+$green-00D:#00DB92;
+
+$box-shadow-grey-029:  #00000029;
+body{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.btn-return-background-2 {
+  max-width: 100px;
+  margin:20px 20px 10px 20px;
+  padding: 0 30px;
+  border: 1px solid $blue-2E2;
+  background-color: #fff;
+}
+.btn-width {
+  width: 100px;
+}
+.cursor-pointer{
+  :hover{
+    cursor: pointer;
+  }
+}
+mat-card {
+  .first-card{
+    color: $white;
+  }
+  mat-card-title{
+    color: $blue-2E2;
+    font-size: 1.2rem;
+  }
+  border-radius: 10px;
+}
+.container-first-card{
+  > mat-card {
+    background-color: $blue-3F5;
+    color: $white;
+  }
+}
+.cdk-global-scrollblock{
+  position: initial !important;
+  width: 100% !important;
+  overflow-y: initial !important;
+}
+.disp-none{
+  display: none;
+}

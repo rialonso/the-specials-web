@@ -1,0 +1,49 @@
+<mat-card class="click-chat" *ngIf="matchUser === undefined">
+  Clique em algum match para visualizar sua conversa.
+</mat-card>
+<div class="container-chat" [style.display]="isHidden? 'none': 'flex'">
+  <mat-card class="infos-match" [style.display]="isHidden? 'none': ''" *ngIf="matchUser !== undefined">
+    <div class="">
+      <div class="match"  >
+        <span class="arrow-back-to-matches" (click)="returnToMatches()" >
+          <mat-icon>arrow_back</mat-icon>
+        </span>
+        <div class="profile-picture cursor-pointer" (click)="openProfile(matchUser.user.id)">
+          <img src="http://34.223.220.245/{{matchUser.user.profile_image}}" alt="">
+        </div>
+        <div class="profile-info">
+          <div class="profile-name  cursor-pointer" (click)="openProfile(matchUser.user.id)" >
+            {{matchUser.user.first_name}}
+            <span *ngIf="!matchUser.user.first_name.indexOf(' ') === false">
+              {{matchUser.user.last_name}}
+            </span>
+          </div>
+          <!-- <div class="profile-type">
+            {{matchUser.user.last_name}}
+          </div> -->
+        </div>
+        <div class="remove-chat">
+          <mat-icon>delete_sweep</mat-icon>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card class="chat" *ngIf="matchUser !== undefined">
+    <div class="mensages">
+      <div class="box-recived">
+        <div class="msg-recived box-msgs">Olá</div>
+      </div>
+      <div class="box-sent">
+        <div class="msg-sent box-msgs">Olá, tudo bemadadada  adadsad aasdasda asd adas dad as</div>
+      </div>
+    </div>
+    <div class="input-sent-msg">
+      <input type="text">
+      <div class="btn-sent">
+        <mat-icon>send</mat-icon>
+      </div>
+    </div>
+
+  </mat-card>
+</div>
+

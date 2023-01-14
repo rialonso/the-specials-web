@@ -1,0 +1,70 @@
+<div class="container-matches">
+<!-- Perfil likes -->
+<div class="container-filter-and-matches">
+  <div class="matches cursor-pointer" >
+
+    <mat-icon class="circle-matches-filter" [matMenuTriggerFor]="menu" >favorite</mat-icon>
+    <!-- <button mat-button >Menu</button> -->
+    <mat-menu #menu="matMenu" class="menu-likes"  >
+      <h2>{{text.sugestionMatches.menuLikes.title}}</h2>
+      <p>{{text.sugestionMatches.menuLikes.female}}: {{femaleLike}}</p>
+      <p>{{text.sugestionMatches.menuLikes.male}}: {{maleLike}}</p>
+      <p>{{text.sugestionMatches.menuLikes.others}}: {{anotherLike}}</p>
+
+    </mat-menu>
+  </div>
+  <div class="filter cursor-pointer">
+    <mat-icon class="circle-matches-filter" [routerLink]="['/preferences']">filter_alt</mat-icon>
+  </div>
+</div>
+
+<div class="container-matches-sugestion"  id="container-drag">
+  <!-- *ngFor="let teste of matchUser" cdkDrag(dragover)='dragCard($event)' -->
+  <mat-card *ngFor="let user of matchUser" draggable="true"
+  (mouseenter)="execDragSplitSugestions()" data-position="0">
+    <div class="container-sugestion-perfil" (click)="openProfile(user.id)" >
+      <!-- <mat-icon class="circle-matches-person">person</mat-icon> -->
+      <mat-icon class="circle-matches-person cursor-pointer">
+        <img #userPhoto src="http://34.223.220.245/{{user.photo}}" onerror="this.onerror = null; this.style.display = 'none'" alt="">
+        <div class="container-no-profile-picture" *ngIf="userPhoto.onerror === null">
+          <mat-icon >
+            no_photography
+          </mat-icon>
+        </div>
+      </mat-icon>
+
+      <span class="cursor-pointer infos-sugestion-matches">
+        <b>
+          <span>{{user.first_name.trim()}}</span> <span *ngIf="!user.first_name.indexOf(' ') === false" > {{user.last_name}}</span>,<span> {{user.usercurrentage}}</span>
+        </b>
+        <p>{{user.user_type}}</p>
+      </span>
+    </div>
+    <div class="container-perfil-picture" >
+      <img #userPhotoMAX class="profile-img" src="http://34.223.220.245/{{user.photo}}" onerror="this.onerror = null; this.style.display = 'none'" alt="">
+      <div class="profile-bigger-picture mat-icon-size container-no-profile-picture" *ngIf="userPhotoMAX.onerror === null">
+        <mat-icon >
+          no_photography
+        </mat-icon>
+      </div>
+    </div>
+  </mat-card>
+
+</div>
+  <div class="aling-buttons">
+    <div class="container-buttons-matches" matchUser>
+      <button class="matches-buttons" (click)="execAddMoreMatchAndTransition('deslike')">
+      <div class="deslike">
+          <mat-icon class="matches-buttons"  >thumb_down</mat-icon>
+        </div>
+      </button>
+
+      <button class="matches-buttons" (click)="execAddMoreMatchAndTransition('like')">
+        <div class="like">
+          <mat-icon class="matches-buttons">thumb_up</mat-icon>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<!-- <app-loading-spinner></app-loading-spinner> -->

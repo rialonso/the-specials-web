@@ -1,0 +1,86 @@
+<div class="container-create-account">
+  <div class="example-container" >
+    <form [formGroup]='registerForm' (submit)='onSubmit()'>
+    <mat-form-field >
+      <mat-label>{{text.createAccount.labelInputName.first_name}}</mat-label>
+      <input matInput formControlName="first_name" [(ngModel)]="user.first_name" >
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label>{{text.createAccount.labelInputName.last_name}}</mat-label>
+      <input matInput formControlName="last_name" [(ngModel)]="user.last_name" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+
+      <mat-label>{{text.createAccount.inputDate.labelInputDate}}</mat-label>
+      <input [(ngModel)]="user.birthdate"  matInput [min]="minDate" [max]="maxDate" type="date" formControlName="birthdate">
+      <!-- ngModel  required -->
+      <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker> -->
+
+    </mat-form-field>
+    <mat-error *ngIf="emailUsed">
+      {{ text.createAccount.inputEmail.email_used }}
+    </mat-error>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input [(ngModel)]="user.email" matInput
+             placeholder="Ex. pat@example.com" formControlName="email">
+      <mat-hint></mat-hint>
+
+      <mat-error *ngIf="f.email.hasError('email') && !f.email.hasError('required')">
+        {{ text.createAccount.inputEmail.msgErrorEmailInvalid }}
+      </mat-error>
+      <mat-error *ngIf="f.email.hasError('required')">
+        {{ text.createAccount.inputEmail.emailIs }} <strong>{{ text.createAccount.inputEmail.required }}</strong>
+      </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label> {{text.createAccount.inputPassword.labelInputPassword}} </mat-label>
+      <input [(ngModel)]="user.password" matInput [type]="hide ? 'password' : 'text'"   formControlName="password">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      <mat-hint></mat-hint>
+      <!-- f.password.value.length >= 1 &&f.password.value.length <= 6 -->
+      <mat-error *ngIf="f.password.hasError('minlength')">
+        {{text.createAccount.inputPassword.msgErrorMinCharacters}}
+      </mat-error>
+
+      <mat-error *ngIf="f.password.hasError('required')">
+        {{ text.createAccount.inputPassword.passwordIs }} <strong>{{ text.createAccount.inputPassword.required }}</strong>
+      </mat-error>
+
+    </mat-form-field>
+
+
+    <mat-form-field class="last">
+      <mat-label> {{text.createAccount.inputRepeatPassword.labelInputRepeatPassword}} </mat-label>
+      <input [(ngModel)]="user.repeatPassword" matInput [type]="hide ? 'password' : 'text'" formControlName="repeatPassword"   >
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+
+      <mat-error *ngIf="f.repeatPassword.hasError('required')">
+        {{ text.createAccount.inputPassword.passwordIs }} <strong>{{ text.createAccount.inputPassword.required }}</strong>
+      </mat-error>
+
+      <mat-error *ngIf="registerForm.hasError('notSame') ">
+        {{ text.createAccount.inputRepeatPassword.msgErrorNotEqual }}
+      </mat-error>
+    </mat-form-field>
+
+    <div class="create-account-terms">
+      <mat-slide-toggle [(ngModel)]="user.checkTerms" formControlName="check" [color]="color">  </mat-slide-toggle> <span>{{text.signin.checkTermuse}}</span>
+      <a (click)=(openDialogRegister()) (click)='execClickTabsShow("click-terms")'>{{text.signin.textCheckTerms}}</a>
+    </div>
+    <div class="buttons-create-account">
+      <button [disabled]='registerForm.invalid' mat-raised-button color="primary"  class="btn btn-create-account" type="submit" > {{text.createAccount.btnCreateAccout}} </button>
+      <div class="container-btn-return">
+        <a  [routerLink]="['/login']"  class="btn btn-return"> {{ text.createAccount.btnRollback }} </a>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>

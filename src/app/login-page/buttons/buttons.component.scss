@@ -1,0 +1,73 @@
+@import "../../app.component.scss";
+.buttons-login{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+  "create-account login"
+  "login-fb login-fb"
+  "or or"
+  "login-qr login-qr"
+  ;
+  button{
+    margin: 10px;
+    span{
+      margin: 1rem;
+    }
+  }
+  .create-account{
+    grid-area: create-account;
+    background-color: $white;
+    color: $red-EC1;
+  }
+  .login{
+    grid-area: login;
+    background-color: $red-EC1;
+    color: $white;
+  }
+  .login-fb{
+    grid-area: login-fb;
+    background-color: #1977F5;
+    color: $white;
+    img{
+      max-width: 37px;
+    }
+  }
+  .or{
+    display: block;
+    grid-area: or;
+    text-align: center;
+    color: $white;
+  }
+  .login-qr{
+    display: block;
+      grid-area: login-qr;
+      background-color: $white;
+      color: #505050;
+  }
+
+}
+@media  only screen and (min-width: 700px) {
+
+    .buttons-login{
+      grid-area: buttons;
+      grid-template-columns: 1fr 1fr ;
+      grid-template-areas:
+      "create-account login"
+      "login-fb login-fb"
+      "or or"
+      "login-qr login-qr";
+      max-width: 100%;
+      width: 380px;
+      button{
+        height: 45px;
+        font-size: 1.2rem;
+      }
+    }
+}
+
+@media  only screen and (min-width: 1250px) {
+  .buttons-login{
+    max-width: 395px;
+    width: 395px;
+  }
+}

@@ -1,0 +1,150 @@
+@import "../../app.component.scss";
+
+.matches-and-chat{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 100%;
+}
+.matches{
+  padding: 30px;
+
+}
+mat-card{
+  border-radius: 10px;
+  padding: 0.8rem;
+}
+.first-card{
+  font-size: 1rem;
+}
+.list-of-matches{
+  margin-top: 15px;
+  border-radius: 10px;
+  background-color: $white;
+  padding: 15px 10px;
+  max-height: 450px;
+  height:450px;
+  overflow: auto;
+  box-shadow: 0px 3px 6px $box-shadow-grey-029;
+}
+.container-match{
+  padding: 10px 0;
+  border-bottom: 1px solid #00000029;
+  cursor: pointer;
+}
+.match{
+  width: 100%;
+  display: grid;
+  padding: 0px 10px;
+  justify-content: center;
+  grid-template-columns: 25% 60% 15%;
+}
+.profile-picture{
+  border-radius: 100%;
+  border: 0.5px solid $blue-2E2;
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+  overflow: hidden;
+  img{
+    border-radius: 100%;
+    max-width: 100%;
+    z-index: 2;
+
+  }
+}
+.profile-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: $blue-2E2;
+}
+
+.profile-name{
+  font-weight: bold;
+}
+.remove-chat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $grey-707;
+}
+.not-matches {
+  color: $blue-2E2;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media  only screen and (min-width: 768px) {
+  .match {
+    grid-template-columns: 30% 60% 20%;
+  }
+  .container-match{
+    padding: 10px 0 10px 15px;
+  }
+  .matches-and-chat {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+    height: 100%;
+    padding: 10px 30px;
+  }
+  .matches {
+    padding: 0 15px 0 0;
+    mat-card{
+      padding: 1.7rem;
+    }
+  }
+
+}
+
+@media  only screen and (min-width: 900px) {
+  .match {
+    grid-template-columns: 25% 65% 10%;
+  }
+  .container-match {
+    padding: 10px 0 10px 5px;
+  }
+  .list-of-matches{
+
+      ::-webkit-scrollbar-track {
+          background-color: $grey-C4C;
+          border-radius: 0 30px 30px 0;
+      }
+      ::-webkit-scrollbar {
+          width: 15px;
+          background: $grey-C4C;
+          border-radius: 0 30px 30px 0;
+      }
+      ::-webkit-scrollbar-thumb {
+          background: $blue-3F5;
+          border-radius: 30px;
+      }
+  }
+}
+@media  only screen and (min-width: 1000px) {
+  .matches-and-chat {
+    padding: 20px 40px;
+  }
+  .match {
+    grid-template-columns: 20% 70% 10%;;
+  }
+}
+@media  only screen and (min-width: 1250px) {
+  .matches-and-chat {
+    padding: 40px 0;
+    margin: auto;
+    max-width: 1300px;
+  }
+}
+@media  only screen and (min-width: 1400px) {
+  .match {
+    grid-template-columns: 15% 80% 5%;
+  }
+}
+
+@media only screen and(min-width: 1024px) and (min-height: 1366px) {
+  .list-of-matches{
+    max-height: 500px;
+  }
+}
